@@ -11,16 +11,17 @@ import javax.swing.JPanel;
 
 public class MainView extends JFrame implements ActionListener{
 	//private GamePauseView currentView;
+
 	private JPanel sidepanel;
 	private JPanel bannerpanel;
 	private JPanel middlepanel;
-	
+	private JPanel ProfilePanel;
+	private JPanel ItemPanel;
 	private JPanel storepanel;
 	private JPanel testpanel = new MiddlePanel();
-	
 	private JFrame mainView;
 
-	public static ActionListener MainActionListener;
+	//public static ActionListener MainActionListener;
 	
 	public MainView(){
 		this.mainView = new JFrame();
@@ -29,7 +30,7 @@ public class MainView extends JFrame implements ActionListener{
 		GridBagConstraints c = new GridBagConstraints();
 		
 		//set up the side panel
-		this.sidepanel = new SidePanel();
+		this.sidepanel = new SidePanel(this);
 		c.gridy = 2;
 		c.gridheight = 2;//GridBagConstraints.REMAINDER;
 		this.add(this.sidepanel,c );
@@ -53,9 +54,17 @@ public class MainView extends JFrame implements ActionListener{
 		this.add(middlepanel,c);
 		
 		
+		this.ProfilePanel = new ProfilePanel();
+		c.gridx = 2;
+		c.gridy = 2;
+		c.gridwidth = GridBagConstraints.REMAINDER;
+		c.gridheight = GridBagConstraints.REMAINDER;
+		this.add(ProfilePanel,c);
+		
+		ProfilePanel.setVisible(false);
 		//set up action listener
 		//action listening should probably be the controllers job.
-		MainView.MainActionListener = this;
+		//MainView.MainActionListener = this;
 	}
 
 	public void register(GamePauseControllerV2 controller) {
@@ -70,8 +79,9 @@ public class MainView extends JFrame implements ActionListener{
 		System.out.println("Button Pressed");
 		// TODO Auto-generated method stub
 		if("changepanels".equals(arg0.getActionCommand())){
-				this.middlepanel = testpanel;
+				this.storepanel.setVisible(false);
+				this.ProfilePanel.setVisible(true);
 			}
 		}
-
+	
 }

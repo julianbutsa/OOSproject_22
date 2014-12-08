@@ -36,8 +36,8 @@ public class ProfilePanel extends JPanel {
 		username = new JLabel(testAccount.getUsername());
 		phoneNumber = new JLabel(testAccount.getPhonenumber());
 		email = new JLabel(testAccount.getEmail());
-		billingInfo = new JLabel(testAccount.getBillinginfo().getStreet() + " " + testAccount.getBillinginfo().getState() + " " + testAccount.getBillinginfo().getZip());
-		shippingInfo = new JLabel(testAccount.getShippinginfo().getStreet() + " " + testAccount.getShippinginfo().getState() + " " + testAccount.getShippinginfo().getZip());
+		//billingInfo = new JLabel(testAccount.getBillinginfo().getStreet() + " " + testAccount.getBillinginfo().getState() + " " + testAccount.getBillinginfo().getZip());
+		//shippingInfo = new JLabel(testAccount.getShippinginfo().getStreet() + " " + testAccount.getShippinginfo().getState() + " " + testAccount.getShippinginfo().getZip());
 		
 		this.add(accountIDLabel);
 		this.add(accountID);
@@ -50,9 +50,9 @@ public class ProfilePanel extends JPanel {
 		this.add(emailLabel);
 		this.add(email);
 		this.add(billingInfoLabel);
-		this.add(billingInfo);
-		this.add(shippingInfoLabel);
-		this.add(shippingInfo);
+		//this.add(billingInfo);
+		//this.add(shippingInfoLabel);
+		//this.add(shippingInfo);
 		
 		editProfile = new JButton("Edit Profile");
 		this.add(editProfile);

@@ -7,14 +7,17 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
-public class SidePanel extends JPanel{
+public class SidePanel extends JPanel {
 	private JLabel sidelabel;
 	private JButton storeButton;
+	private ActionListener MainActionListener;
 	
-	
-	public SidePanel(){
+	public SidePanel(ActionListener MAL){
+		this.MainActionListener = MAL;
 		this.setLayout(new GridLayout(10,1));
 		
 		
@@ -31,10 +34,11 @@ public class SidePanel extends JPanel{
 		//set up the button
 		//we're adding the listener from the MainView, referring to it statically
 		this.storeButton = new JButton("Store");
-		storeButton.addActionListener(MainView.MainActionListener);
+		storeButton.addActionListener(this.MainActionListener);
 		storeButton.setActionCommand("changepanels");
 		this.add(storeButton);
 	}
-	
+
+
 
 }
