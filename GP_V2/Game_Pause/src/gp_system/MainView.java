@@ -16,14 +16,14 @@ public class MainView extends JFrame implements ActionListener{
 	private JPanel middlepanel;
 	
 	private JPanel storepanel;
-	private JPanel testpanel = new MiddlePanel();
+	private JPanel testpanel = new ProfilePanel();
 	
 	private JFrame mainView;
 
 	public static ActionListener MainActionListener;
 	
 	public MainView(){
-		this.mainView = new JFrame();
+		this.setMainView(new JFrame());
 		//set up the layout
 		this.setLayout(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
@@ -70,8 +70,18 @@ public class MainView extends JFrame implements ActionListener{
 		System.out.println("Button Pressed");
 		// TODO Auto-generated method stub
 		if("changepanels".equals(arg0.getActionCommand())){
-				this.middlepanel = testpanel;
+				this.middlepanel = this.testpanel;
+				this.revalidate();
+				this.repaint();
 			}
 		}
+
+	public JFrame getMainView() {
+		return mainView;
+	}
+
+	public void setMainView(JFrame mainView) {
+		this.mainView = mainView;
+	}
 
 }
