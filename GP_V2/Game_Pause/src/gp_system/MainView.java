@@ -18,7 +18,8 @@ public class MainView extends JFrame implements ActionListener{
 	private JPanel profilepanel;
 	private JPanel itempanel;
 	private JPanel storepanel;
-	//private JFrame mainView;
+	
+	private JFrame mainView;
 
 	
 	private JPanel currentPanel;
@@ -26,6 +27,8 @@ public class MainView extends JFrame implements ActionListener{
 	
 	public MainView(){
 		//this.mainView = new JFrame();
+		this.setMainView(new JFrame());
+		
 		//set up the layout
 		this.setLayout(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
@@ -99,5 +102,13 @@ public class MainView extends JFrame implements ActionListener{
 				break;
 		}
 	}
-	
+
+	public JFrame getMainView() {
+		return mainView;
+	}
+
+	public void setMainView(JFrame mainView) {
+		this.mainView = mainView;
+	}
+
 }
