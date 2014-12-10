@@ -12,19 +12,20 @@ import javax.swing.JPanel;
 public class MainView extends JFrame implements ActionListener{
 	//private GamePauseView currentView;
 
+	
 	private JPanel sidepanel;
 	private JPanel bannerpanel;
-	private JPanel middlepanel;
-	private JPanel ProfilePanel;
-	private JPanel ItemPanel;
+	private JPanel profilepanel;
+	private JPanel itempanel;
 	private JPanel storepanel;
-	private JPanel testpanel = new MiddlePanel();
-	private JFrame mainView;
+	//private JFrame mainView;
 
+	
+	private JPanel currentPanel;
 	//public static ActionListener MainActionListener;
 	
 	public MainView(){
-		this.mainView = new JFrame();
+		//this.mainView = new JFrame();
 		//set up the layout
 		this.setLayout(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
@@ -46,22 +47,29 @@ public class MainView extends JFrame implements ActionListener{
 		
 		//Setting up the main Panel. THis will change as you navigate the site
 		this.storepanel = new StorePanel();
-		this.middlepanel = this.storepanel;
 		c.gridx = 2;
 		c.gridy = 2;
 		c.gridwidth = GridBagConstraints.REMAINDER;
 		c.gridheight = GridBagConstraints.REMAINDER;
-		this.add(middlepanel,c);
+		this.add(storepanel,c);
+		this.currentPanel = this.storepanel;
 		
-		
-		this.ProfilePanel = new ProfilePanel();
+		this.profilepanel = new ProfilePanel();
 		c.gridx = 2;
 		c.gridy = 2;
 		c.gridwidth = GridBagConstraints.REMAINDER;
 		c.gridheight = GridBagConstraints.REMAINDER;
-		this.add(ProfilePanel,c);
+		this.add(profilepanel,c);
 		
-		ProfilePanel.setVisible(false);
+		profilepanel.setVisible(false);
+		
+		this.itempanel = new JPanel();
+		c.gridx = 2;
+		c.gridy = 2;
+		c.gridwidth = GridBagConstraints.REMAINDER;
+		c.gridheight = GridBagConstraints.REMAINDER;
+		this.add(itempanel, c);
+		itempanel.setVisible(false);
 		//set up action listener
 		//action listening should probably be the controllers job.
 		//MainView.MainActionListener = this;
@@ -73,15 +81,23 @@ public class MainView extends JFrame implements ActionListener{
 	}
 
 
-	//action listening does not work.
+	//action listening works if you hand this frame as an action listener to the panel with the button.
 	
 	public void actionPerformed(ActionEvent arg0) {
 		System.out.println("Button Pressed");
 		// TODO Auto-generated method stub
-		if("changepanels".equals(arg0.getActionCommand())){
-				this.storepanel.setVisible(false);
-				this.ProfilePanel.setVisible(true);
-			}
+		switch(arg0.getActionCommand()){
+			case "store":
+				this.currentPanel.setVisible(false);
+				this.currentPanel = this.storepanel;
+				this.currentPanel.setVisible(true);
+				break;		
+			case "profile":
+				this.currentPanel.setVisible(false);
+				this.currentPanel = this.profilepanel;
+				this.currentPanel.setVisible(true);
+				break;
 		}
+	}
 	
 }

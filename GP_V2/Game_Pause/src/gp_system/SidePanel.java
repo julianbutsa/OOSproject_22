@@ -35,7 +35,7 @@ public class SidePanel extends JPanel {
 		//we're adding the listener from the MainView, referring to it statically
 		this.storeButton = new JButton("Store");
 		storeButton.addActionListener(this.MainActionListener);
-		storeButton.setActionCommand("changepanels");
+		storeButton.setActionCommand("profile");
 		this.add(storeButton);
 	}
 
