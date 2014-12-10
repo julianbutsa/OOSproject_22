@@ -9,6 +9,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import containers.Account;
+
 public class MainView extends JFrame implements ActionListener{
 	//private GamePauseView currentView;
 
@@ -18,9 +20,10 @@ public class MainView extends JFrame implements ActionListener{
 	private JPanel profilepanel;
 	private JPanel itempanel;
 	private JPanel storepanel;
-	
+	private JPanel registerpanel;
 	private JFrame mainView;
 
+	private Account currentuser;
 	
 	private JPanel currentPanel;
 	//public static ActionListener MainActionListener;
@@ -28,7 +31,7 @@ public class MainView extends JFrame implements ActionListener{
 	public MainView(){
 		//this.mainView = new JFrame();
 		this.setMainView(new JFrame());
-		
+		this.currentuser = null;
 		//set up the layout
 		this.setLayout(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
@@ -40,7 +43,7 @@ public class MainView extends JFrame implements ActionListener{
 		this.add(this.sidepanel,c );
 		
 		//set up the top panel. Banner with login / register
-		this.bannerpanel = new LogoViewPanel();
+		this.bannerpanel = new LogoViewPanel(this);
 		c.gridx = 0;
 		c.gridy = 0;
 		c.weightx = 100;
@@ -66,13 +69,21 @@ public class MainView extends JFrame implements ActionListener{
 		
 		profilepanel.setVisible(false);
 		
-		this.itempanel = new JPanel();
+		this.itempanel = new ItemPanel();
 		c.gridx = 2;
 		c.gridy = 2;
 		c.gridwidth = GridBagConstraints.REMAINDER;
 		c.gridheight = GridBagConstraints.REMAINDER;
 		this.add(itempanel, c);
 		itempanel.setVisible(false);
+		
+		this.registerpanel = new CreateAccountPanel();
+		c.gridx = 2;
+		c.gridy = 2;
+		c.gridwidth = GridBagConstraints.REMAINDER;
+		c.gridheight = GridBagConstraints.REMAINDER;
+		this.add(registerpanel, c);
+		registerpanel.setVisible(false);
 		//set up action listener
 		//action listening should probably be the controllers job.
 		//MainView.MainActionListener = this;
@@ -87,7 +98,6 @@ public class MainView extends JFrame implements ActionListener{
 	//action listening works if you hand this frame as an action listener to the panel with the button.
 	
 	public void actionPerformed(ActionEvent arg0) {
-		System.out.println("Button Pressed");
 		// TODO Auto-generated method stub
 		switch(arg0.getActionCommand()){
 			case "store":
@@ -98,6 +108,11 @@ public class MainView extends JFrame implements ActionListener{
 			case "profile":
 				this.currentPanel.setVisible(false);
 				this.currentPanel = this.profilepanel;
+				this.currentPanel.setVisible(true);
+				break;
+			case "register":
+				this.currentPanel.setVisible(false);
+				this.currentPanel = this.registerpanel;
 				this.currentPanel.setVisible(true);
 				break;
 		}

@@ -3,6 +3,8 @@ package gp_system;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -11,8 +13,10 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import db_system.AccountManagement;
 
-public class CreateAccountPanel extends JPanel {
+
+public class CreateAccountPanel extends JPanel implements ActionListener {
 	public JLabel firstNameLabel, lastNameLabel, emailLabel, confirmEmailLabel, 
            passwordLabel, confirmPasswordLabel, passwordReq, picLabel;
 	public JTextField firstNametf, lastNametf, emailtf, confirmEmailtf;
@@ -23,12 +27,12 @@ public class CreateAccountPanel extends JPanel {
 		this.setBackground(Color.WHITE);
 		this.setLayout(new BorderLayout());
 		
-	    String path = "./logo.jpg";
+	  //  String path = "./logo.jpg";
 	    
-	    picLabel = new JLabel(new ImageIcon(path));
-	    picLabel.setHorizontalAlignment(JLabel.CENTER);
+	   // picLabel = new JLabel(new ImageIcon(path));
+	   // picLabel.setHorizontalAlignment(JLabel.CENTER);
 	    
-	    this.add(picLabel);
+	   // this.add(picLabel);
 		
 		//create a panel for the labels and text fields
 		GridLayout layout = new GridLayout(6,2);
@@ -72,7 +76,8 @@ public class CreateAccountPanel extends JPanel {
 		//create password info label and button
 		passwordReq = new JLabel("*Password needs to be 8 to 30 characters\n*");
 		createAccountButton = new JButton("Submit and Create Account");
-		
+		createAccountButton.addActionListener(this);
+		createAccountButton.setActionCommand("register");
 		//add elements to panel
 		buttonPanel.add(passwordReq);
 		buttonPanel.add(createAccountButton);
@@ -81,5 +86,16 @@ public class CreateAccountPanel extends JPanel {
 		//add elements to AccountPanel
 		this.add(labelsTextPanel, BorderLayout.NORTH);
 		this.add(buttonPanel, BorderLayout.SOUTH);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		
+		switch(arg0.getActionCommand()){
+			case "register":
+			break;
+		}
+		// TODO Auto-generated method stub
+		
 	}
 }

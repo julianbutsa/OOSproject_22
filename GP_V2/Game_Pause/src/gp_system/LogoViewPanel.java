@@ -3,6 +3,7 @@ package gp_system;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -10,6 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 public class LogoViewPanel extends JPanel{
 
@@ -20,10 +23,10 @@ public class LogoViewPanel extends JPanel{
 	
 	//test menu items
 	public JMenuItem jm1 = new JMenuItem("Register");
-	public JMenuItem jm2 = new JMenuItem("Log in");
-
+	//public JMenuItem jm2 = new JMenuItem("Log in");
 	
-	public LogoViewPanel() {
+	
+	public LogoViewPanel(ActionListener a) {
 
 	this.setBackground(Color.white);
     this.setLayout(new BorderLayout());  
@@ -39,10 +42,14 @@ public class LogoViewPanel extends JPanel{
     
     this.add(viewer, BorderLayout.CENTER);
     
+    jm1.addActionListener(a);
+    jm1.setActionCommand("register");
     mPanel.add(jm1);
-    mPanel.add(jm2);
+    
+   // mPanel.add(jm2);
     
     this.add(mPanel, BorderLayout.SOUTH);
-
+    
+    
 	}
 }
