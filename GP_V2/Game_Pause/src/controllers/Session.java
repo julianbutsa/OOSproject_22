@@ -5,20 +5,21 @@ package controllers;
 
 public interface Session {
 	
-	public boolean login();
+
 	
-	public boolean logout();
-	
-	public boolean order();
-	
-	public boolean checkout();
-	
-	public boolean comment();
-	
-	public boolean deleteComment();
-	
+	//Account stuff
 	public boolean createAccount();
-	
+	public boolean login();
+	public boolean logout();
 	public boolean updateAccount();
+	
+	//Order Checkout Cart
+	public boolean order();
+	public boolean checkout();
+	public boolean createCart();
+	
+	//Comment
+	public boolean comment();
+	public boolean deleteComment();
 
 }

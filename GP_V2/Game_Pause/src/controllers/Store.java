@@ -25,13 +25,14 @@ public class Store {
 	}
 	
 	public static boolean register(){
-		DBAccount account = new DBAccount();
+		
 		
 		
 		return false;
 	}
 	
 	public static boolean login(){
+		
 		return false;
 	}
 
