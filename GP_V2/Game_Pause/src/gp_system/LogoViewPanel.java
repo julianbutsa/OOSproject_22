@@ -64,8 +64,6 @@ public class LogoViewPanel extends JPanel implements ActionListener{
 		register.setAlignmentX(RIGHT_ALIGNMENT);
 
 
-
-
 		mPanel.add(Box.createHorizontalGlue());
 		//mPanel.add
 		mPanel.add(store);
@@ -90,11 +88,4 @@ public class LogoViewPanel extends JPanel implements ActionListener{
 
 	}
 
-	public void focusGained(java.awt.event.FocusEvent evt) {
-		if (password.getText().equals("password")) {
-			//jTextArea1.setSelectionStart(0);
-			//jTextArea1.setSelectionEnd(jTextArea1.getText().length());
-			password.selectAll();
-		}
-	}
 }
