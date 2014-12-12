@@ -16,7 +16,7 @@ public class GamePauseView extends JFrame{
 	
 	public JPanel container = new JPanel();
 	
-	public LogoViewPanel logoPanel =new LogoViewPanel();
+	public LogoViewPanel logoPanel =new LogoViewPanel(null);
 	//private ButtonPanel bPanel = new ButtonPanel();
 	public JMenuBar mPanel = new JMenuBar();
 	
