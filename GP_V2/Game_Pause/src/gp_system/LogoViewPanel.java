@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
 
+import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -22,8 +23,10 @@ public class LogoViewPanel extends JPanel{
 	public JMenuBar mPanel = new JMenuBar();
 	
 	//test menu items
-	public JMenuItem jm1 = new JMenuItem("Register");
-	//public JMenuItem jm2 = new JMenuItem("Log in");
+	public JButton jm1 = new JButton("Register");
+	public JButton jm2 = new JButton("Log in");
+	public JTextField password = new JTextField("password");
+	public JTextField email = new JTextField("email");
 	
 	
 	public LogoViewPanel(ActionListener a) {
@@ -44,9 +47,16 @@ public class LogoViewPanel extends JPanel{
     
     jm1.addActionListener(a);
     jm1.setActionCommand("register");
-    mPanel.add(jm1);
     
-   // mPanel.add(jm2);
+  
+    jm1.setAlignmentX(RIGHT_ALIGNMENT);
+    mPanel.add(Box.createHorizontalGlue());
+    //mPanel.add
+    mPanel.add(email);
+    mPanel.add(password);
+    mPanel.add(jm2);
+    
+    mPanel.add(jm1);
     
     this.add(mPanel, BorderLayout.SOUTH);
     
