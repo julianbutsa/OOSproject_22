@@ -26,8 +26,10 @@ public class LogoViewPanel extends JPanel implements ActionListener{
 	//test menu items
 	public JButton registerbutton = new JButton("Register");
 	public JButton loginbutton = new JButton("Log in");
+
 	public JTextField password = new JTextField("password");
 	public JTextField email = new JTextField("email");
+
 	
 	
 	public LogoViewPanel(ActionListener a) {
@@ -55,8 +57,7 @@ public class LogoViewPanel extends JPanel implements ActionListener{
     //mPanel.add
     mPanel.add(email);
     mPanel.add(password);
-    mPanel.add(loginbutton);
-    
+    mPanel.add(loginbutton);   
     mPanel.add(registerbutton);
     
     this.add(mPanel, BorderLayout.SOUTH);
