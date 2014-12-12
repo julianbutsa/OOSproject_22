@@ -5,6 +5,8 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.Box;
 import javax.swing.ImageIcon;
@@ -65,7 +67,12 @@ public class LogoViewPanel extends JPanel implements ActionListener{
   
     register.setAlignmentX(RIGHT_ALIGNMENT);
 
-    
+    password.addMouseListener(new MouseAdapter()
+    {
+    	public void mouseClicked(MouseEvent e){
+    		password.setText("");
+    	}
+	});
    
 
     mPanel.add(Box.createHorizontalGlue());
@@ -78,7 +85,7 @@ public class LogoViewPanel extends JPanel implements ActionListener{
     
     mPanel.add(register);
 
-
+    
     
     this.add(mPanel, BorderLayout.SOUTH);
     
