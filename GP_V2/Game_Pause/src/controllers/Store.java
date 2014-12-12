@@ -9,7 +9,7 @@ import java.util.*;
 
 public class Store {
 	
-	public static boolean displayRandomItems(ArrayList<Item> itemlist){
+	public static boolean getItems(ArrayList<Item> itemlist){
 		DBItem items = new DBItem();
 		//ArrayList<Item> itemlist = new ArrayList<Item>();
 		try {
@@ -34,16 +34,6 @@ public class Store {
 	public static boolean login(){
 		
 		return false;
-	}
-
-	public static void main(String[] args) {
-		Store store = new Store();
-		ArrayList<Item> ilist = new ArrayList<Item>();
-		Store.displayRandomItems(ilist);
-		for(int i = 0; i<ilist.size(); i++){
-			System.out.println(ilist.get(i).getItemname());
-		}
-		
 	}
 	
 }

@@ -15,7 +15,7 @@ public class StorePanel extends JPanel{
 	private Store myStore;
 	private ArrayList<Item> items;
 	private ArrayList<ItemPanel> itemPanels;
-	
+	private Store mystore;
 	public StorePanel(){
 		myStore = new Store();
 		myStore.getItems(items);
