@@ -87,6 +87,8 @@ public class MainView extends JFrame implements ActionListener{
 		registerpanel.setVisible(false);
 		
 
+		//this.registerpanel = new LogInPanel(this);
+		
 		//set up action listener
 		//action listening should probably be the controllers job.
 		//MainView.MainActionListener = this;
