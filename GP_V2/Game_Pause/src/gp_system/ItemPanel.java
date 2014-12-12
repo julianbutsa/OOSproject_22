@@ -6,6 +6,7 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -38,13 +39,19 @@ public class ItemPanel extends JPanel implements ActionListener{
 	
 	
 	public ItemPanel(Item itemParameter){
+		GroupLayout layout = new GroupLayout(this);
+		this.setLayout(layout);
+		layout.setAutoCreateGaps(true);
+		layout.setAutoCreateContainerGaps(true);
+		
 		this.item = itemParameter;
 		this.itemname = new JLabel(item.getItemname());
 		//this.setLayout(new GridLayout(3,1));
 		this.itemprice = new JLabel(String.valueOf(item.getPrice()));
 		this.stock = new JLabel(String.valueOf(item.getStock()));
+		this.rating = new JLabel(String.valueOf(item.getRating()));
 		//this.rating = new JLabel(String.valueOf(item.getRating()));	
-		this.rateTextBox = new JTextField();
+		this.rateTextBox = new JTextField("", 2);
 		this.rateButton = new JButton("Rate");
 		rateButton.addActionListener(this);
 		rateButton.setActionCommand("rate");
@@ -55,14 +62,49 @@ public class ItemPanel extends JPanel implements ActionListener{
 		
 		piclabel = new JLabel (new ImageIcon(item.getImage()));
 		piclabel.setPreferredSize(new Dimension(30,30));
+	
 		
-		this.add(piclabel);
+		//playing around with GroupLayout, not working how I want it yet
+		layout.setHorizontalGroup(
+				layout.createSequentialGroup()
+					.addComponent(piclabel)
+					.addComponent(itemname)
+					.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addComponent(rating)
+						.addComponent(rateTextBox))
+					.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addComponent(stock)
+						.addComponent(rateButton))
+					.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addComponent(itemprice)
+						.addComponent(cartButton))
+				
+		);
+		
+		layout.setVerticalGroup(
+				layout.createSequentialGroup()
+					.addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(piclabel)
+						.addComponent(itemname)
+						.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+							.addComponent(rating)
+							.addComponent(rateTextBox))
+						.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+							.addComponent(stock)
+							.addComponent(rateButton))
+						.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+							.addComponent(itemprice)
+							.addComponent(cartButton)))
+					
+		);
+		
+		/*this.add(piclabel);
 		this.add(itemname);
 		this.add(itemprice);
 		this.add(stock);
 		this.add(rateTextBox);
 		this.add(rateButton);
-		this.add(cartButton);
+		this.add(cartButton);*/
 	}
 
 	
@@ -74,7 +116,7 @@ public class ItemPanel extends JPanel implements ActionListener{
 		this.itemprice = new JLabel("100");
 		this.stock = new JLabel("1");
 		//this.rating = new JLabel(String.valueOf(item.getRating()));	
-		this.rateTextBox = new JTextField();
+		this.rateTextBox = new JTextField("",5);
 		this.rateButton = new JButton("Rate");
 		rateButton.addActionListener(this);
 		rateButton.setActionCommand("rate");

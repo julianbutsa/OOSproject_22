@@ -18,13 +18,13 @@ public class StorePanel extends JPanel{
 	private Store mystore;
 	public StorePanel(){
 		myStore = new Store();
-		myStore.getItems(items);
+
 		
 		this.setLayout(new GridLayout( 4,2));
 		
 		this.items = new ArrayList<Item>();
 		this.itemPanels = new ArrayList<ItemPanel>();
-		
+		myStore.getItems(items);
 		Iterator<Item> i = items.iterator();
 		while(i.hasNext()){
 			ItemPanel temp = new ItemPanel(i.next());

@@ -143,25 +143,26 @@ CREATE TABLE IF NOT EXISTS `item` (
   `stock` int(11) DEFAULT NULL,
   `platform` varchar(40) DEFAULT NULL,
   `manufacturer` varchar(255) DEFAULT NULL,
-  `image` varchar(100) NOT NULL
+  `image` varchar(100) NOT NULL,
+  `rating` double DEFAULT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `item`
 --
 
-INSERT INTO `item` (`itemid`, `itemname`, `price`, `stock`, `platform`, `manufacturer`, `image`) VALUES
-(1, 'Bayoneta 2', 6.99, 1, 'WiiU', 'EPIC GAMES', 'bayoneta2-wiiu.jpg'),
-(2, 'Call of Duty - Advanced Warfare', 59.99, 2, 'XBOX ONE', 'Activision', 'callofdutyaw-xboxone.jpg'),
-(3, 'Assassins Creed - Unity', 69.79, 5, 'PlayStation 4', 'Ubisoft', 'asscreduni-ps4.jpg'),
-(4, 'BorderLands - Pre-Sequel', 49.99, 2, 'PC', '2K', 'borderlands-pc.jpg'),
-(5, 'Grand Theft Auto V', 50, 3, 'XBOX ONE', 'Rockstar', 'gtav-xboxone.jpg'),
-(6, 'Halo - The Master Chief Collection', 45.55, 2, 'XBOX ONE', 'Bungie', 'halotmcc-xboxone.jpg'),
-(7, 'Hyrule Warrios', 79.99, 5, 'WiiU', 'Nintendo', 'hyrulewar-wiiu.jpg'),
-(8, 'Play Station 4', 299.99, 8, 'PlayStation 4', 'Sony', 'ps4.jpg'),
-(9, 'XBOX ONE', 359.99, 3, 'XBOX ONE', 'Microsoft', 'xboxone.jpg'),
-(10, 'Atari', 100, 2, 'Atari', 'Atari', 'atari6.jpg'),
-(11, 'Super Famicom', 300, 3, 'Super Famicom', 'Nintendo', 'superfamicon.jpg');
+INSERT INTO `item` (`itemid`, `itemname`, `price`, `stock`, `platform`, `manufacturer`, `image`, `rating`) VALUES
+(1, 'Bayonneta 2', 6.99, 1, 'WiiU', 'EPIC GAMES', 'bayoneta2-wiiu.jpg', '4.5'),
+(2, 'Call of Duty - Advanced Warfare', 59.99, 2, 'XBOX ONE', 'Activision', 'callofdutyaw-xboxone.jpg', '3.75'),
+(3, 'Assassins Creed - Unity', 69.79, 5, 'PlayStation 4', 'Ubisoft', 'asscreduni-ps4.jpg', '3'),
+(4, 'BorderLands - The Pre-Sequel', 49.99, 2, 'PC', '2K', 'borderlands-pc.jpg', '4.25'),
+(5, 'Grand Theft Auto V', 50, 3, 'XBOX ONE', 'Rockstar', 'gtav-xboxone.jpg', '5'),
+(6, 'Halo - The Master Chief Collection', 45.55, 2, 'XBOX ONE', 'Bungie', 'halotmcc-xboxone.jpg', '4.75'),
+(7, 'Hyrule Warriors', 79.99, 5, 'WiiU', 'Nintendo', 'hyrulewar-wiiu.jpg', '4.5'),
+(8, 'Play Station 4', 299.99, 8, 'PlayStation 4', 'Sony', 'ps4.jpg', '5'),
+(9, 'XBOX ONE', 359.99, 3, 'XBOX ONE', 'Microsoft', 'xboxone.jpg', '4.5'),
+(10, 'Atari', 100, 2, 'Atari', 'Atari', 'atari6.jpg', '4'),
+(11, 'Super Famicom', 300, 3, 'Super Famicom', 'Nintendo', 'superfamicon.jpg', '4');
 
 -- --------------------------------------------------------
 
