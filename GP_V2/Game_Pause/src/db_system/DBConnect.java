@@ -32,14 +32,14 @@ public class DBConnect {
 	static final String USER = "root";
 	static final String PASS = "";
 	
-	Connection conn = null;
-	Statement stmt = null;
+	static Connection conn = null;
+	static Statement stmt = null;
 	/*
 	 * public int connect
 	 * Returns a 0 if connection was successful.
 	 * Returns a -1 if connection was unsuccessful.
 	 */
-	public boolean connect() throws SQLException{
+	public static boolean connect() throws SQLException{
 		//Loading the JDBC+MySQL Driver
 		boolean ret = true;
 		try {
@@ -73,7 +73,7 @@ public class DBConnect {
 	}
 	//Disconnects from DB
 	//if successful, returns a 0 if not returns -1
-	public boolean disconnect(){
+	public static boolean disconnect(){
 		boolean ret = false;
 		 try{
 	         if(conn!=null)

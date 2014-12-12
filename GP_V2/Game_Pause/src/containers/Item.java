@@ -8,6 +8,7 @@ public class Item {
 	private String platform;
 	private String manufacturer;
 	private String image;
+	private double rating;
 	
 	public int getItemid() {
 		return itemid;
@@ -50,6 +51,12 @@ public class Item {
 	}
 	public void setImage(String image) {
 		this.image = image;
+	}
+	public double getRating() {
+		return rating;
+	}
+	public void setRating(double rating) {
+		this.rating = rating;
 	}
 	
 }

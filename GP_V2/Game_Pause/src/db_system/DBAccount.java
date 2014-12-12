@@ -12,7 +12,7 @@ import containers.Account;
 
 public class DBAccount extends DBConnect
 {
-	public boolean login(Account acc, String either, String password){
+	public static boolean login(Account acc, String either, String password){
 		ResultSet rs = null;
 		boolean ret = false;
 	    //Execute query
@@ -51,7 +51,7 @@ public class DBAccount extends DBConnect
 		}
 		return ret;
 	}
-	public boolean createAccount(int accountid, String username, String email, String password, String firstname, String lastname, String phonenumber,int admin){
+	public static boolean createAccount(int accountid, String username, String email, String password, String firstname, String lastname, String phonenumber,int admin){
 		boolean ret = false;
 		if(conn == null) System.out.println("No Connection to DB");
 		else System.out.println("Connection to DB");
@@ -69,7 +69,7 @@ public class DBAccount extends DBConnect
 		return ret;
 	}
 	
-	public boolean insertShippingInfo(int accountid, String state, int zip, String street, int apptnum, String country){
+	public static boolean insertShippingInfo(int accountid, String state, int zip, String street, int apptnum, String country){
 		boolean ret = false;
 		String query = "INSERT INTO shippinginfo " + "VALUES ("+accountid+", '"+state+"', "+
 		               zip+", '"+street+", "+apptnum+", '" +country+"')";
@@ -83,7 +83,7 @@ public class DBAccount extends DBConnect
 		}
 		return ret;
 	}
-	public boolean insertBillingInfo(int accountid, String state, int zip, String street, int apptnum, String country){
+	public static boolean insertBillingInfo(int accountid, String state, int zip, String street, int apptnum, String country){
 		boolean ret = false;
 		String query = "INSERT INTO billinginfo " + 
 		"VALUES (" +accountid+", '"+ state+"', "+zip+ ", '"+street+

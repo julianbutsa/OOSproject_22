@@ -11,6 +11,7 @@ public class Account {
 	private String password;
 	private Address billinginfo;
 	private Address shippinginfo;
+	private int admin;
 	
 	
 	public int getAccountid() {
@@ -66,6 +67,12 @@ public class Account {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public int getAdmin() {
+		return admin;
+	}
+	public void setAdmin(int admin) {
+		this.admin = admin;
 	}
 	
 	

@@ -8,7 +8,7 @@ import containers.*;
 
 public class DBOrder extends DBConnect{
 
-	public boolean insertOrderMap(int orderid, int accountid, int itemid, int quantity){
+	public static boolean insertOrderMap(int orderid, int accountid, int itemid, int quantity){
 		boolean ret = false;
 		String query = "INSERT INTO ordermap " + "VALUES ("+orderid+", "+accountid+
 				", " + itemid+", " +quantity+ ")";
@@ -22,7 +22,7 @@ public class DBOrder extends DBConnect{
 		}
 		return ret;
 	}
-	public boolean insertOrders(int orderid, String timeoforder, int completed){
+	public static boolean insertOrders(int orderid, String timeoforder, int completed){
 		boolean ret = false;
 		String query = "INSERT INTO orders " + "VALUES ("+orderid+", "+
 		timeoforder +", "+completed+ ")";
@@ -37,7 +37,7 @@ public class DBOrder extends DBConnect{
 		return ret;
 	}
 	
-	public boolean orderSearch(ArrayList<Game> list){
+	public static boolean orderSearch(ArrayList<Game> list){
 		ResultSet rs = null;
 		boolean flag = false;
 		//Execute query

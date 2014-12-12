@@ -1,7 +1,7 @@
 package controllers;
 
-import containers.*;
-import db_system.*;
+
+/* Client and Admin Session classes will implement this interface*/
 
 public interface Session {
 	

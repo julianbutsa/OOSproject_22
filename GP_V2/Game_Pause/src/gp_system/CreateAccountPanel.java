@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import db_system.AccountManagement;
+
 
 
 public class CreateAccountPanel extends JPanel implements ActionListener {

@@ -8,7 +8,7 @@ import containers.*;
 
 public class DBComment  extends DBConnect{
 	
-	public boolean insertComment(int commentid, String comment, String dateposted){
+	public static boolean insertComment(int commentid, String comment, String dateposted){
 		boolean ret = false;
 		String query = "INSERT INTO comment " + "VALUES ("+commentid + ",'"+ comment +"', '" + dateposted +"')";
 		try {
@@ -21,7 +21,7 @@ public class DBComment  extends DBConnect{
 		}
 		return ret;
 	}
-	public boolean insertCommentMap(int commentid, int accountid, int itemid){
+	public static boolean insertCommentMap(int commentid, int accountid, int itemid){
 		boolean ret = false;
 		String query = "INSERT INTO commentmap " + "VALUES ("+
 		                commentid+", "+accountid+", "+itemid+")";
@@ -36,7 +36,7 @@ public class DBComment  extends DBConnect{
 		return ret;
 	}
 	
-	public boolean getCommentByID(ArrayList<Comment> list, String id){
+	public static boolean getCommentByID(ArrayList<Comment> list, String id){
 		boolean ret = false;
 		ResultSet rs = null;
 		try{

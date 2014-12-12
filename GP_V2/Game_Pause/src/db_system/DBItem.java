@@ -6,9 +6,9 @@ import java.util.ArrayList;
 
 import containers.*;
 
-public class DBItem  extends DBConnect{
+public class DBItem extends DBConnect{
 	
-	public boolean insertItem(int itemid, String itemname, double price, int stock, String platform, String manufacturer){
+	public static boolean insertItem(int itemid, String itemname, double price, int stock, String platform, String manufacturer){
 		boolean ret = false;
 		String query = "INSERT INTO item " + "VALUES ("+itemid+", '"+itemname+
 				"', "+price+", "+stock+", '" +platform +"', '"+manufacturer+"')";
@@ -23,7 +23,7 @@ public class DBItem  extends DBConnect{
 		return ret;
 	}
 	
-	public boolean insertGame(int itemid, String releasedata, String genre, String image){
+	public static boolean insertGame(int itemid, String releasedata, String genre, String image){
 		boolean ret = false;
 		String query = "INSERT INTO game " + "VALUES ("+itemid+", '"+releasedata+"', '"+ genre+ "','"+ image+"')";
 		try {
@@ -36,7 +36,7 @@ public class DBItem  extends DBConnect{
 		}
 		return ret;
 	}
-	public boolean insertHardware(int itemid, String itemtype){
+	public static boolean insertHardware(int itemid, String itemtype){
 		boolean ret = false;
 		String query = "INSERT INTO hardware " + "VALUES ("+itemid+", '"+ itemtype+"')";
 		try {
@@ -50,7 +50,7 @@ public class DBItem  extends DBConnect{
 		return ret;
 	}
 	//Gets an arraylist of Item objects and populates it
-	public boolean gameSearch(ArrayList<Game> list){
+	public static boolean gameSearch(ArrayList<Game> list){
 		ResultSet rs1 = null;
 		boolean flag = false;
 		//Execute query
