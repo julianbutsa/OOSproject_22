@@ -116,6 +116,12 @@ public class MainView extends JFrame implements ActionListener{
 				this.currentPanel.setVisible(true);
 				break;
 			case "register":
+				if(this.currentPanel == this.registerpanel){
+					this.currentPanel.setVisible(false);
+					this.currentPanel = this.storepanel;
+					this.currentPanel.setVisible(true);
+					break;
+				}
 				this.currentPanel.setVisible(false);
 				this.currentPanel = this.registerpanel;
 				this.currentPanel.setVisible(true);

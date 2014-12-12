@@ -68,13 +68,18 @@ public class LogoViewPanel extends JPanel implements ActionListener{
 
 
 
-    password.addMouseListener(new MouseAdapter()
-    {
-    	public void mouseClicked(MouseEvent e){
-    		password.setText("");
-    	}
-	});
-   
+		password.addMouseListener(new MouseAdapter(){
+			public void mouseClicked(MouseEvent e){
+				password.setText("");
+			}
+		});
+		
+		email.addMouseListener(new MouseAdapter(){
+			public void mouseClicked(MouseEvent e){
+				email.setText("");
+			}
+		});
+
 
 
 		mPanel.add(Box.createHorizontalGlue());
@@ -82,21 +87,11 @@ public class LogoViewPanel extends JPanel implements ActionListener{
 		mPanel.add(store);
 		mPanel.add(email);
 		mPanel.add(password);
-
 		mPanel.add(logIn);
-
 		mPanel.add(register);
-    
-    
-    this.add(mPanel, BorderLayout.SOUTH);
-    
-    
-
-
 
 		this.add(mPanel, BorderLayout.SOUTH);
-
-
+		this.add(mPanel, BorderLayout.SOUTH);
 
 	}
 
