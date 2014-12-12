@@ -31,6 +31,7 @@ public class LogoViewPanel extends JPanel implements ActionListener{
 	public JButton register = new JButton("Register");
 	public JButton logIn = new JButton("Log in");
 	public JButton store = new JButton("Store");
+	public JButton cart = new JButton("Cart");
 
 	public JTextField password = new JTextField("password");
 	public JTextField email = new JTextField("email");
@@ -62,6 +63,9 @@ public class LogoViewPanel extends JPanel implements ActionListener{
 
 		store.addActionListener(a);
 		store.setActionCommand("store");
+		
+		store.addActionListener(a);
+		store.setActionCommand("cart");
 
 
 		register.setAlignmentX(RIGHT_ALIGNMENT);
@@ -89,6 +93,7 @@ public class LogoViewPanel extends JPanel implements ActionListener{
 		mPanel.add(password);
 		mPanel.add(logIn);
 		mPanel.add(register);
+		mPanel.add(cart);
 
 		this.add(mPanel, BorderLayout.SOUTH);
 		this.add(mPanel, BorderLayout.SOUTH);

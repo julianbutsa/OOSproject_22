@@ -4,15 +4,31 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class CartView extends JFrame implements ActionListener{
+public class CartView extends JPanel implements ActionListener{
 	
-	GridLayout layout = new GridLayout(6,2);
-	JPanel labelsTextPanel = new JPanel(layout);
-	//labelsTextPanel.setBackground(Color.WHITE);
+	private ArrayList<ItemPanel> items;
+	private JButton submitButton;
+	
+	public CartView(){
+		this.setLayout(new GridLayout( 4,2));
+		this.items = new ArrayList<ItemPanel>();
+		this.submitButton = new JButton("submit");
+		for(int i = 0; i < 6; i ++){
+			ItemPanel temp = new ItemPanel();
+			items.add(temp);
+		}
+		
+		for (ItemPanel ip : items){
+			this.add(ip);
+		}
+		this.add(submitButton);
+	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
