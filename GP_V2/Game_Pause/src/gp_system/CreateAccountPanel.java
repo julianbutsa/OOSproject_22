@@ -13,7 +13,8 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import db_system.AccountManagement;
+//Bascom
+
 
 
 public class CreateAccountPanel extends JPanel implements ActionListener {
