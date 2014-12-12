@@ -47,8 +47,8 @@ public class MainView extends JFrame implements ActionListener{
 		this.bannerpanel = new LogoViewPanel(this);
 		c.gridx = 0;
 		c.gridy = 0;
-		c.weightx = 100;
-		c.gridwidth = 10;
+		c.weightx = 10;
+		c.gridwidth = 100;
 		c.fill = GridBagConstraints.HORIZONTAL;
 		this.add(this.bannerpanel,c );
 		
@@ -116,6 +116,12 @@ public class MainView extends JFrame implements ActionListener{
 				this.currentPanel.setVisible(true);
 				break;
 			case "register":
+				if(this.currentPanel == this.registerpanel){
+					this.currentPanel.setVisible(false);
+					this.currentPanel = this.storepanel;
+					this.currentPanel.setVisible(true);
+					break;
+				}
 				this.currentPanel.setVisible(false);
 				this.currentPanel = this.registerpanel;
 				this.currentPanel.setVisible(true);
