@@ -23,7 +23,7 @@ public class LogoViewPanel extends JPanel{
 	
 	//test menu items
 	public JMenuItem jm1 = new JMenuItem("Register");
-	//public JMenuItem jm2 = new JMenuItem("Log in");
+	public JMenuItem jm2 = new JMenuItem("Log in");
 	
 	
 	public LogoViewPanel(ActionListener a) {
@@ -45,7 +45,9 @@ public class LogoViewPanel extends JPanel{
     jm1.addActionListener(a);
     jm1.setActionCommand("register");
     mPanel.add(jm1);
-    
+    jm2.addActionListener(a);
+    jm2.setActionCommand("login");
+    mPanel.add(jm2);
    // mPanel.add(jm2);
     
     this.add(mPanel, BorderLayout.SOUTH);

@@ -22,6 +22,7 @@ public class MainView extends JFrame implements ActionListener{
 	private JPanel storepanel;
 	private JPanel registerpanel;
 	private JFrame mainView;
+	private JPanel loginpanel;
 
 	private Account currentuser;
 	
@@ -84,6 +85,8 @@ public class MainView extends JFrame implements ActionListener{
 		c.gridheight = GridBagConstraints.REMAINDER;
 		this.add(registerpanel, c);
 		registerpanel.setVisible(false);
+		
+
 		//set up action listener
 		//action listening should probably be the controllers job.
 		//MainView.MainActionListener = this;
@@ -113,6 +116,11 @@ public class MainView extends JFrame implements ActionListener{
 			case "register":
 				this.currentPanel.setVisible(false);
 				this.currentPanel = this.registerpanel;
+				this.currentPanel.setVisible(true);
+				break;
+			case "login":
+				this.currentPanel.setVisible(false);
+				this.currentPanel = this.loginpanel;
 				this.currentPanel.setVisible(true);
 				break;
 		}
