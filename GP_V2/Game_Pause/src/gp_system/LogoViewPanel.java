@@ -24,8 +24,9 @@ public class LogoViewPanel extends JPanel{
 	
 	//test menu items
 
-	public JButton jm1 = new JButton("Register");
-	public JButton jm2 = new JButton("Log in");
+	public JButton register = new JButton("Register");
+	public JButton logIn = new JButton("Log in");
+	public JButton store = new JButton("Store");
 	public JTextField password = new JTextField("password");
 	public JTextField email = new JTextField("email");
 
@@ -47,24 +48,26 @@ public class LogoViewPanel extends JPanel{
     
     this.add(viewer, BorderLayout.CENTER);
     
-    jm1.addActionListener(a);
-    jm1.setActionCommand("register");
+    register.addActionListener(a);
+    register.setActionCommand("register");
 
-    mPanel.add(jm1);
-    jm2.addActionListener(a);
-    jm2.setActionCommand("login");
-    mPanel.add(jm2);
+ 
+    logIn.addActionListener(a);
+    logIn.setActionCommand("login");
 
+    store.addActionListener(a);
+    store.setActionCommand("store");
     
   
-    jm1.setAlignmentX(RIGHT_ALIGNMENT);
+    register.setAlignmentX(RIGHT_ALIGNMENT);
     mPanel.add(Box.createHorizontalGlue());
     //mPanel.add
+    mPanel.add(store);
     mPanel.add(email);
     mPanel.add(password);
-    mPanel.add(jm2);
+    mPanel.add(logIn);
     
-    mPanel.add(jm1);
+    mPanel.add(register);
 
     
     this.add(mPanel, BorderLayout.SOUTH);

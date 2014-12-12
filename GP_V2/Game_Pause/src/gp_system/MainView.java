@@ -15,7 +15,7 @@ public class MainView extends JFrame implements ActionListener{
 	//private GamePauseView currentView;
 
 	
-	private JPanel sidepanel;
+	//private JPanel sidepanel;
 	private JPanel bannerpanel;
 	private JPanel profilepanel;
 	private JPanel itempanel;
@@ -38,10 +38,10 @@ public class MainView extends JFrame implements ActionListener{
 		GridBagConstraints c = new GridBagConstraints();
 		
 		//set up the side panel
-		this.sidepanel = new SidePanel(this);
+		//this.sidepanel = new SidePanel(this);
 		c.gridy = 2;
 		c.gridheight = 2;//GridBagConstraints.REMAINDER;
-		this.add(this.sidepanel,c );
+		//this.add(this.sidepanel,c );
 		
 		//set up the top panel. Banner with login / register
 		this.bannerpanel = new LogoViewPanel(this);
@@ -118,11 +118,11 @@ public class MainView extends JFrame implements ActionListener{
 				this.currentPanel = this.registerpanel;
 				this.currentPanel.setVisible(true);
 				break;
-			case "login":
-				this.currentPanel.setVisible(false);
-				this.currentPanel = this.loginpanel;
-				this.currentPanel.setVisible(true);
-				break;
+//			case "login":
+//				this.currentPanel.setVisible(false);
+//				this.currentPanel = this.loginpanel;
+//				this.currentPanel.setVisible(true);
+//				break;
 		}
 	}
 
