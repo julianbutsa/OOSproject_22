@@ -8,10 +8,10 @@ import containers.*;
 
 public class DBItem extends DBConnect{
 	
-	public static boolean insertItem(int itemid, String itemname, double price, int stock, String platform, String manufacturer){
+	public static boolean insertItem(int itemid, String itemname, double price, int stock, String platform, String manufacturer,double rating){
 		boolean ret = false;
 		String query = "INSERT INTO item " + "VALUES ("+itemid+", '"+itemname+
-				"', "+price+", "+stock+", '" +platform +"', '"+manufacturer+"')";
+				"', "+price+", "+stock+", '" +platform +"', '"+manufacturer+"'," +rating+"')";
 		try {
 			stmt.executeUpdate(query);
 			ret = true;
@@ -73,6 +73,7 @@ public class DBItem extends DBConnect{
 				game.setManufacturer(rs1.getString("manufacturer"));
 				game.setReleasedate(rs1.getString("releasedate"));
 				game.setGenre(rs1.getString("genre"));
+				game.setRating(rs1.getDouble("rating"));
 				list.add(game);
 			}
 			flag = true;
