@@ -47,6 +47,7 @@ public class LogoViewPanel extends JPanel implements ActionListener{
 		picLabel = new JLabel(new ImageIcon(path));
 		picLabel.setHorizontalAlignment(JLabel.CENTER);
 
+
 		viewer.add(picLabel);
 
 		this.add(viewer, BorderLayout.CENTER);
