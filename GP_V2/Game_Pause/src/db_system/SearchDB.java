@@ -24,95 +24,77 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 
+
+
 //containers - all classes for the system
 import containers.*;
 
-public class SearchDB {
-		//JDBC driver name and database URL
-		static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-		static final String DB_URL = "jdbc:mysql://localhost:3306/gamepause";
-		
-		//  Database credentials
-		static final String USER = "root";
-		static final String PASS = "";
-		
-		Connection conn = null;
-		Statement stmt = null;
-		
-		/*
-		 * public int connect
-		 * Returns a 0 if connection was successful.
-		 * Returns a -1 if connection was unsuccessful.
-		 */
-		public int connect() throws SQLException {
-			//Loading the JDBC+MySQL Driver
-			int ret = 0;
-			try {
-				Class.forName("com.mysql.jdbc.Driver");
-				System.out.println("The JDBC Driver is working!");
-				
-			} catch (ClassNotFoundException e) {
-				System.out.println("Where is your MySQL JDBC Driver?");
-				e.printStackTrace();
-			}
-			//Connection
-			System.out.println("Connectig to the Database...");
-			conn = DriverManager.getConnection(DB_URL,USER,PASS);
-			//fill statement
-			stmt  = conn.createStatement();
-			if (conn == null) {
-				ret = -1;
-			}
-			return ret;
-			
-		}
-		//Disconnects from DB
-		//if successful, returns a 0 if not returns -1
-		public int disconnect(){
-			int ret = 99;
-			 try{
-		         if(conn!=null)
-		        	 ret = 0;
-		            conn.close();
-		     }catch(SQLException se){
-		    	 ret = -1;
-		         se.printStackTrace();
-		     }//end try catch
-		     System.out.println("Goodbye!");
-			return ret;
-		}
+public class SearchDB extends ConnectionDB{
+
 		//Gets an arraylist of Item objects and populates it
-		public int gameSearch(ArrayList list){
-			ResultSet rs = null;
+		public int gameSearch(ArrayList<Game> list){
+			ResultSet rs1 = null;
 			int ret = 99;
-			 //Execute query
+			//Execute query
 			try{
-				String query = "SELECT * FROM `item`";
-				rs = stmt.executeQuery(query);
+				String query1 = "SELECT * FROM `item` INNER JOIN `game` ON item.itemid=game.itemid";
+				rs1 = stmt.executeQuery(query1);
 					
 			}catch(Exception ex){
 				System.out.println(ex);
 			}
 			//populate arraylist<item>
 			try {
-				int i = 0;
-				Item pitem = new Item();
-				while(rs.next()){
-					//populate the object of game
-					
+				while(rs1.next()){
+					Game game = new Game();
+					game.setItemid(rs1.getInt("itemid"));
+					game.setItemname(rs1.getString("itemname"));
+					game.setPrice(rs1.getDouble("price"));
+					game.setStock(rs1.getInt("stock"));
+					game.setPlatform(rs1.getString("platform"));
+					game.setManufacturer(rs1.getString("manufacturer"));
+					game.setReleasedate(rs1.getString("releasedate"));
+					game.setGenre(rs1.getString("genre"));
+					list.add(game);
 				}
-				
+				ret = 0;
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
-			
-			
 			return ret;
 			
 		}
 		
-
+		public boolean searchOrdersbyID(ArrayList<Order> list, String accountid){
+			ResultSet rs1 = null;
+			boolean ret = false;
+			//Execute query
+			try{
+				String query1 = "SELECT * FROM `ordermap` WHERE accountid = '"+accountid+"' INNER JOIN `orders`";
+				rs1 = stmt.executeQuery(query1);
+					
+			}catch(Exception ex){
+				System.out.println(ex);
+			}
+			return ret;
+		}
+		
+		public static void main(String[] args) {
+			
+			SearchDB nop = new SearchDB();
+			try {
+				nop.connect();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			ArrayList<Game> list = new ArrayList<Game>();
+			if(nop.gameSearch(list) == 0){
+				for(int i=0; i<list.size(); i++){
+					System.out.println(list.get(i).getItemname());
+				}
+			}
+		}
 
 }//end of class
