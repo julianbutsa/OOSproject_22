@@ -3,6 +3,7 @@ package gp_system;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.Box;
@@ -15,7 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-public class LogoViewPanel extends JPanel{
+public class LogoViewPanel extends JPanel implements ActionListener{
 
 	public JLabel picLabel = new JLabel();
 	public JPanel viewer = new JPanel(new BorderLayout());
@@ -23,8 +24,8 @@ public class LogoViewPanel extends JPanel{
 	public JMenuBar mPanel = new JMenuBar();
 	
 	//test menu items
-	public JButton jm1 = new JButton("Register");
-	public JButton jm2 = new JButton("Log in");
+	public JButton registerbutton = new JButton("Register");
+	public JButton loginbutton = new JButton("Log in");
 	public JTextField password = new JTextField("password");
 	public JTextField email = new JTextField("email");
 	
@@ -45,21 +46,28 @@ public class LogoViewPanel extends JPanel{
     
     this.add(viewer, BorderLayout.CENTER);
     
-    jm1.addActionListener(a);
-    jm1.setActionCommand("register");
+    registerbutton.addActionListener(a);
+    registerbutton.setActionCommand("register");
     
   
-    jm1.setAlignmentX(RIGHT_ALIGNMENT);
+    registerbutton.setAlignmentX(RIGHT_ALIGNMENT);
     mPanel.add(Box.createHorizontalGlue());
     //mPanel.add
     mPanel.add(email);
     mPanel.add(password);
-    mPanel.add(jm2);
+    mPanel.add(loginbutton);
     
-    mPanel.add(jm1);
+    mPanel.add(registerbutton);
     
     this.add(mPanel, BorderLayout.SOUTH);
     
     
+	}
+
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 }
