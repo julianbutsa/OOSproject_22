@@ -20,9 +20,9 @@ public class LogoViewPanel extends JPanel implements ActionListener{
 
 	public JLabel picLabel = new JLabel();
 	public JPanel viewer = new JPanel(new BorderLayout());
-	
+
 	public JMenuBar mPanel = new JMenuBar();
-	
+
 	//test menu items
 
 
@@ -33,62 +33,68 @@ public class LogoViewPanel extends JPanel implements ActionListener{
 	public JTextField password = new JTextField("password");
 	public JTextField email = new JTextField("email");
 
-	
-	
 	public LogoViewPanel(ActionListener a) {
 
-	this.setBackground(Color.white);
-    this.setLayout(new BorderLayout());  
-    
-    viewer.setBackground(Color.white);
-    
-    String path = "./logo.jpg";
-    
-    picLabel = new JLabel(new ImageIcon(path));
-    picLabel.setHorizontalAlignment(JLabel.CENTER);
-    
-    viewer.add(picLabel);
-    
-    this.add(viewer, BorderLayout.CENTER);
+		this.setBackground(Color.white);
+		this.setLayout(new BorderLayout());  
 
-    
-    register.addActionListener(a);
-    register.setActionCommand("register");
+		viewer.setBackground(Color.white);
 
- 
-    logIn.addActionListener(a);
-    logIn.setActionCommand("login");
+		String path = "./logo.jpg";
 
-    store.addActionListener(a);
-    store.setActionCommand("store");
-    
-  
-    register.setAlignmentX(RIGHT_ALIGNMENT);
+		picLabel = new JLabel(new ImageIcon(path));
+		picLabel.setHorizontalAlignment(JLabel.CENTER);
 
-    
-   
+		viewer.add(picLabel);
 
-    mPanel.add(Box.createHorizontalGlue());
-    //mPanel.add
-    mPanel.add(store);
-    mPanel.add(email);
-    mPanel.add(password);
-
-    mPanel.add(logIn);
-    
-    mPanel.add(register);
+		this.add(viewer, BorderLayout.CENTER);
 
 
-    
-    this.add(mPanel, BorderLayout.SOUTH);
-    
-    
+		register.addActionListener(a);
+		register.setActionCommand("register");
+
+
+		logIn.addActionListener(a);
+		logIn.setActionCommand("login");
+
+		store.addActionListener(a);
+		store.setActionCommand("store");
+
+
+		register.setAlignmentX(RIGHT_ALIGNMENT);
+
+
+
+
+		mPanel.add(Box.createHorizontalGlue());
+		//mPanel.add
+		mPanel.add(store);
+		mPanel.add(email);
+		mPanel.add(password);
+
+		mPanel.add(logIn);
+
+		mPanel.add(register);
+
+
+
+		this.add(mPanel, BorderLayout.SOUTH);
+
+
 	}
 
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
-		
+
+	}
+
+	public void focusGained(java.awt.event.FocusEvent evt) {
+		if (password.getText().equals("password")) {
+			//jTextArea1.setSelectionStart(0);
+			//jTextArea1.setSelectionEnd(jTextArea1.getText().length());
+			password.selectAll();
+		}
 	}
 }
