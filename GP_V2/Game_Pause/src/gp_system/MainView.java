@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import containers.Account;
+import controllers.Session;
 
 public class MainView extends JFrame implements ActionListener{
 	//private GamePauseView currentView;
@@ -24,7 +25,7 @@ public class MainView extends JFrame implements ActionListener{
 	private JFrame mainView;
 	private JPanel loginpanel;
 
-	private Account currentuser;
+	private Session currentsession = null;
 	
 	private JPanel currentPanel;
 	//public static ActionListener MainActionListener;
@@ -32,7 +33,7 @@ public class MainView extends JFrame implements ActionListener{
 	public MainView(){
 		//this.mainView = new JFrame();
 		this.setMainView(new JFrame());
-		this.currentuser = null;
+		//this.currentuser = null;
 		//set up the layout
 		this.setLayout(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();

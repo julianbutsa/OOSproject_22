@@ -13,11 +13,6 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-<<<<<<< HEAD
-=======
-//Bascom
->>>>>>> branch 'master' of https://github.com/julianbutsa/OOSproject_22
-
 
 
 public class CreateAccountPanel extends JPanel implements ActionListener {
