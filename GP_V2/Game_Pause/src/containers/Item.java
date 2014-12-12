@@ -50,7 +50,7 @@ public class Item {
 		return image;
 	}
 	public void setImage(String image) {
-		this.image = image;
+		this.image = "./gimages/" + image;
 	}
 	public double getRating() {
 		return rating;

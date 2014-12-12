@@ -108,6 +108,7 @@ public class DBItem extends DBConnect{
 					item.setPlatform(rs1.getString("platform"));
 					item.setManufacturer(rs1.getString("manufacturer"));
 					item.setImage(rs1.getString("image"));
+					item.setRating(rs1.getDouble("rating"));
 					list.add(item);
 				}
 				flag = true;

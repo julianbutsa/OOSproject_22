@@ -51,4 +51,10 @@ public class AdminSession implements Session{
 		return false;
 	}
 
+	@Override
+	public boolean createCart() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
