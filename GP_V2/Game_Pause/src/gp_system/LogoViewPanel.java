@@ -66,7 +66,7 @@ public class LogoViewPanel extends JPanel implements ActionListener{
 		register.setAlignmentX(RIGHT_ALIGNMENT);
 
 
-<<<<<<< HEAD
+
     password.addMouseListener(new MouseAdapter()
     {
     	public void mouseClicked(MouseEvent e){
@@ -74,9 +74,7 @@ public class LogoViewPanel extends JPanel implements ActionListener{
     	}
 	});
    
-=======
 
->>>>>>> origin/master
 
 		mPanel.add(Box.createHorizontalGlue());
 		//mPanel.add
@@ -87,20 +85,18 @@ public class LogoViewPanel extends JPanel implements ActionListener{
 		mPanel.add(logIn);
 
 		mPanel.add(register);
-
-<<<<<<< HEAD
     
     
     this.add(mPanel, BorderLayout.SOUTH);
     
     
-=======
+
 
 
 		this.add(mPanel, BorderLayout.SOUTH);
 
 
->>>>>>> origin/master
+
 	}
 
 
