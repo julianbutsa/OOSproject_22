@@ -3,17 +3,6 @@ package controllers;
 
 public class AdminSession implements Session{
 
-	@Override
-	public boolean login() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean logout() {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
 	@Override
 	public boolean order() {
@@ -35,12 +24,6 @@ public class AdminSession implements Session{
 
 	@Override
 	public boolean deleteComment() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean createAccount() {
 		// TODO Auto-generated method stub
 		return false;
 	}

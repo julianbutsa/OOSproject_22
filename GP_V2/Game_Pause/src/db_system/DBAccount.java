@@ -51,12 +51,13 @@ public class DBAccount extends DBConnect
 		}
 		return ret;
 	}
-	public static boolean createAccount(int accountid, String username, String email, String password, String firstname, String lastname, String phonenumber,int admin){
+	public static boolean createAccount(String username, String email, String password, String firstname,
+			String lastname, String phonenumber,int admin){
 		boolean ret = false;
 		if(conn == null) System.out.println("No Connection to DB");
 		else System.out.println("Connection to DB");
-		String query = "INSERT INTO account " +
-           "VALUES ("+accountid+", '"+username+"', '"+email+"', '"+password+
+		String query = "INSERT INTO account (username,email,password,firstname,lastname,phonenumber,admin)" +
+           "VALUES ('"+username+"', '"+email+"', '"+password+
             "','"+firstname+"','"+lastname+"','"+phonenumber+"',"+ admin+")";
 		try {
 			stmt.executeUpdate(query);

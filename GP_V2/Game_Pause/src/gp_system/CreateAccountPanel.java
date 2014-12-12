@@ -11,14 +11,15 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
-
 import javax.swing.JTextField;
+
+import controllers.Store;
 
 
 public class CreateAccountPanel extends JPanel implements ActionListener {
-	public JLabel firstNameLabel, lastNameLabel, emailLabel, confirmEmailLabel, 
-           passwordLabel, confirmPasswordLabel, passwordReq, picLabel;
-	public JTextField firstNametf, lastNametf, emailtf, confirmEmailtf;
+	public JLabel firstNameLabel, lastNameLabel, usernameLabel, emailLabel, confirmEmailLabel, 
+           passwordLabel, confirmPasswordLabel, passwordReq, picLabel, phoneLabel;
+	public JTextField firstNametf, lastNametf, usernametf, emailtf, confirmEmailtf, phonetf;
 	public JPasswordField passwordtf, confirmPasswordtf;
 	public JButton createAccountButton;
 	
@@ -34,31 +35,36 @@ public class CreateAccountPanel extends JPanel implements ActionListener {
 	   // this.add(picLabel);
 		
 		//create a panel for the labels and text fields
-		GridLayout layout = new GridLayout(6,2);
+		GridLayout layout = new GridLayout(8,2);
 		JPanel labelsTextPanel = new JPanel(layout);
 		labelsTextPanel.setBackground(Color.WHITE);
 		
 		//create labels
 		firstNameLabel = new JLabel("First Name:");
 		lastNameLabel = new JLabel("Last Name:");
+		usernameLabel = new JLabel("Username:");
 		emailLabel = new JLabel("Email:");
 		confirmEmailLabel = new JLabel("Confirm Email:");
 		passwordLabel = new JLabel("Password:");
 		confirmPasswordLabel = new JLabel("Confirm Password:");
-		
+		phoneLabel = new JLabel ("Phone Number");
 		//create text fields
 		firstNametf = new JTextField("", 30);
 		lastNametf = new JTextField("", 30);
+		usernametf = new JTextField("", 30);
 		emailtf = new JTextField("", 30);
 		confirmEmailtf = new JTextField("", 30);
 		passwordtf = new JPasswordField("", 30);
 		confirmPasswordtf = new JPasswordField("", 30);
+		phonetf  = new JTextField("", 30);
 		
 		//add elements to panel
 		labelsTextPanel.add(firstNameLabel);
 		labelsTextPanel.add(firstNametf);
 		labelsTextPanel.add(lastNameLabel);
 		labelsTextPanel.add(lastNametf);
+		labelsTextPanel.add(usernameLabel);
+		labelsTextPanel.add(usernametf);
 		labelsTextPanel.add(emailLabel);
 		labelsTextPanel.add(emailtf);
 		labelsTextPanel.add(confirmEmailLabel);
@@ -67,6 +73,8 @@ public class CreateAccountPanel extends JPanel implements ActionListener {
 		labelsTextPanel.add(passwordtf);
 		labelsTextPanel.add(confirmPasswordLabel);
 		labelsTextPanel.add(confirmPasswordtf);
+		labelsTextPanel.add(phoneLabel);
+		labelsTextPanel.add(phonetf);
 		
 		//create a panel for the button and password requirements
 		JPanel buttonPanel = new JPanel(new GridLayout(1,2));
@@ -92,6 +100,9 @@ public class CreateAccountPanel extends JPanel implements ActionListener {
 		
 		switch(arg0.getActionCommand()){
 			case "register":
+				Store.register(usernametf.getText(), emailtf.getText(), passwordtf.getText(), 
+						firstNametf.getText(), lastNametf.getText(), phonetf.getText());
+				
 			break;
 		}
 		// TODO Auto-generated method stub

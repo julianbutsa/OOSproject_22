@@ -3,17 +3,6 @@ package controllers;
 
 public class ClientSession implements Session{
 
-	@Override
-	public boolean login() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean logout() {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
 	@Override
 	public boolean order() {
@@ -40,12 +29,6 @@ public class ClientSession implements Session{
 	}
 
 	@Override
-	public boolean createAccount() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
 	public boolean updateAccount() {
 		// TODO Auto-generated method stub
 		return false;
@@ -56,5 +39,6 @@ public class ClientSession implements Session{
 		// TODO Auto-generated method stub
 		return false;
 	}
+
 
 }
