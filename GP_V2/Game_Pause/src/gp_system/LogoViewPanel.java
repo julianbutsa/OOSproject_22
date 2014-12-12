@@ -24,15 +24,12 @@ public class LogoViewPanel extends JPanel implements ActionListener{
 	public JMenuBar mPanel = new JMenuBar();
 	
 	//test menu items
-	public JButton registerbutton = new JButton("Register");
-	public JButton loginbutton = new JButton("Log in");
 
-<<<<<<< HEAD
+
 	public JButton register = new JButton("Register");
 	public JButton logIn = new JButton("Log in");
 	public JButton store = new JButton("Store");
-=======
->>>>>>> origin/master
+
 	public JTextField password = new JTextField("password");
 	public JTextField email = new JTextField("email");
 
@@ -53,7 +50,7 @@ public class LogoViewPanel extends JPanel implements ActionListener{
     viewer.add(picLabel);
     
     this.add(viewer, BorderLayout.CENTER);
-<<<<<<< HEAD
+
     
     register.addActionListener(a);
     register.setActionCommand("register");
@@ -67,28 +64,21 @@ public class LogoViewPanel extends JPanel implements ActionListener{
     
   
     register.setAlignmentX(RIGHT_ALIGNMENT);
-=======
+
     
-    registerbutton.addActionListener(a);
-    registerbutton.setActionCommand("register");
-    
-  
-    registerbutton.setAlignmentX(RIGHT_ALIGNMENT);
->>>>>>> origin/master
+   
+
     mPanel.add(Box.createHorizontalGlue());
     //mPanel.add
     mPanel.add(store);
     mPanel.add(email);
     mPanel.add(password);
-<<<<<<< HEAD
+
     mPanel.add(logIn);
     
     mPanel.add(register);
 
-=======
-    mPanel.add(loginbutton);   
-    mPanel.add(registerbutton);
->>>>>>> origin/master
+
     
     this.add(mPanel, BorderLayout.SOUTH);
     
