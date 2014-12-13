@@ -10,8 +10,7 @@ import java.util.Iterator;
 
 import containers.Account;
 
-public class DBAccount extends DBConnect
-{
+public class DBAccount extends DBConnect{
 	public static boolean login(Account acc, String either, String password){
 		ResultSet rs = null;
 		boolean ret = false;
@@ -33,21 +32,14 @@ public class DBAccount extends DBConnect
 					acc.setFirstname(rs.getString("firstname"));
 					acc.setLastname(rs.getString("lastname"));
 					acc.setPhonenumber(rs.getString("phonenumber"));
+					acc.setAdmin(rs.getInt("admin"));
 					ret = true;
 				}
 			}
-			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			ret = false;
-		}
-		
-		try {
-			rs.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 		return ret;
 	}
