@@ -25,6 +25,7 @@ public class MainView extends JFrame implements ActionListener{
 	private StorePanel storepanel;
 	private CreateAccountPanel registerpanel;
 	private JFrame mainView;
+	private CartView cart;
 
 	public static Session currentsession = null;
 	
@@ -57,7 +58,7 @@ public class MainView extends JFrame implements ActionListener{
 		this.add(this.bannerpanel,c );
 		
 		//Setting up the main Panel. THis will change as you navigate the site
-		this.storepanel = new StorePanel();
+		this.storepanel = new StorePanel(this);
 		c.gridx = 2;
 		c.gridy = 2;
 		c.gridwidth = GridBagConstraints.REMAINDER;
@@ -91,7 +92,13 @@ public class MainView extends JFrame implements ActionListener{
 		registerpanel.setVisible(false);
 		
 
-		//this.registerpanel = new LogInPanel(this);
+		this.cart  = new CartView(this);
+		c.gridx = 2;
+		c.gridy = 2;
+		c.gridwidth = GridBagConstraints.REMAINDER;
+		c.gridheight = GridBagConstraints.REMAINDER;
+		this.add(cart, c);
+		cart.setVisible(false);
 		
 		//set up action listener
 		//action listening should probably be the controllers job.
@@ -130,6 +137,19 @@ public class MainView extends JFrame implements ActionListener{
 				this.currentPanel.setVisible(true);
 				break;	
 				
+			case "cart":
+				this.cart  = new CartView(this);
+				GridBagConstraints c = new GridBagConstraints();
+				c.gridx = 2;
+				c.gridy = 2;
+				c.gridwidth = GridBagConstraints.REMAINDER;
+				c.gridheight = GridBagConstraints.REMAINDER;
+				this.add(cart, c);
+				this.currentPanel.setVisible(false);
+				this.currentPanel = this.cart;
+				this.currentPanel.setVisible(true);
+				break;
+			
 			case "login":
 				Account a = new Account();
 				if(DBAccount.login(a, bannerpanel.email.getText(), bannerpanel.password.getText() )){
