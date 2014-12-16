@@ -62,12 +62,12 @@ public class ItemPanel extends JPanel implements ActionListener{
 		cartButton.setActionCommand("addtocart");
 		/*
 		piclabel = new JLabel (new ImageIcon(getItem().getImage()));
-<<<<<<< HEAD
+
 		piclabel.setPreferredSize(new Dimension(30,30));
-		*/
-=======
+		
+
 		piclabel.setPreferredSize(new Dimension(30,30));
->>>>>>> origin/master
+*/
 		
 		//playing around with GroupLayout, not working how I want it yet
 		layout.setHorizontalGroup(
