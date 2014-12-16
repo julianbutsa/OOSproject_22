@@ -1,5 +1,7 @@
 package controllers;
 
+import containers.Account;
+
 
 public class AdminSession implements Session{
 
@@ -38,6 +40,24 @@ public class AdminSession implements Session{
 	public boolean createCart() {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public Cart getcart() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setauthenticated(boolean auth) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setaccount(Account a) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

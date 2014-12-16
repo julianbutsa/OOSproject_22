@@ -11,12 +11,15 @@ import java.awt.event.MouseEvent;
 import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+
+import controllers.Session;
 
 public class LogoViewPanel extends JPanel implements ActionListener{
 
@@ -30,14 +33,17 @@ public class LogoViewPanel extends JPanel implements ActionListener{
 
 	public JButton register = new JButton("Register");
 	public JButton logIn = new JButton("Log in");
+	public JButton logout = new JButton("logout");
 	public JButton store = new JButton("Store");
 	public JButton cart = new JButton("Cart");
 
 	public JTextField password = new JTextField("password");
 	public JTextField email = new JTextField("email");
 
-	public LogoViewPanel(ActionListener a) {
+	public MainView mainFrame;
+	public LogoViewPanel(MainView a) {
 
+		this.mainFrame = a;
 		this.setBackground(Color.white);
 		this.setLayout(new BorderLayout());  
 
@@ -61,6 +67,9 @@ public class LogoViewPanel extends JPanel implements ActionListener{
 		logIn.addActionListener(a);
 		logIn.setActionCommand("login");
 
+		logout.addActionListener(a);
+		logout.setActionCommand("logout");
+		
 		store.addActionListener(a);
 		store.setActionCommand("store");
 		
@@ -94,13 +103,23 @@ public class LogoViewPanel extends JPanel implements ActionListener{
 		mPanel.add(logIn);
 		mPanel.add(register);
 		mPanel.add(cart);
-
+		mPanel.add(logout);
+		logout.setVisible(false);
 		this.add(mPanel, BorderLayout.SOUTH);
 		this.add(mPanel, BorderLayout.SOUTH);
 
 	}
 
 
+
+
+	public String getusername(){
+		return this.email.getText();
+	}
+	
+	public String getpassword(){
+		return this.password.getText();
+	}
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub

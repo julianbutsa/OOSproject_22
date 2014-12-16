@@ -8,7 +8,7 @@ import containers.*;
 
 public class Cart {
 	
-	ArrayList<Item> cart = new ArrayList<Item>();
+	public ArrayList<Item> cart = new ArrayList<Item>();
 	
 	public boolean addItemtoCart(){
 		

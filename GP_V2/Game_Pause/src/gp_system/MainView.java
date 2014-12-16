@@ -10,27 +10,30 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import containers.Account;
+import controllers.ClientSession;
 import controllers.Session;
+import db_system.DBAccount;
 
 public class MainView extends JFrame implements ActionListener{
 	//private GamePauseView currentView;
 
 	
 	//private JPanel sidepanel;
-	private JPanel bannerpanel;
-	private JPanel profilepanel;
-	private JPanel itempanel;
-	private JPanel storepanel;
-	private JPanel registerpanel;
+	private LogoViewPanel bannerpanel;
+	private ProfilePanel profilepanel;
+	private ItemPanel itempanel;
+	private StorePanel storepanel;
+	private CreateAccountPanel registerpanel;
 	private JFrame mainView;
-	private JPanel loginpanel;
 
-	private Session currentsession = null;
+	public static Session currentsession = null;
 	
 	private JPanel currentPanel;
 	//public static ActionListener MainActionListener;
 	
 	public MainView(){
+		MainView.currentsession = new ClientSession();
+		
 		//this.mainView = new JFrame();
 		this.setMainView(new JFrame());
 		//this.currentuser = null;
@@ -79,7 +82,7 @@ public class MainView extends JFrame implements ActionListener{
 		this.add(itempanel, c);
 		itempanel.setVisible(false);
 		
-		this.registerpanel = new CreateAccountPanel();
+		this.registerpanel = new CreateAccountPanel(this);
 		c.gridx = 2;
 		c.gridy = 2;
 		c.gridwidth = GridBagConstraints.REMAINDER;
@@ -117,21 +120,42 @@ public class MainView extends JFrame implements ActionListener{
 				this.currentPanel.setVisible(true);
 				break;
 			case "register":
-				if(this.currentPanel == this.registerpanel){
-					this.currentPanel.setVisible(false);
-					this.currentPanel = this.storepanel;
-					this.currentPanel.setVisible(true);
-					break;
-				}
 				this.currentPanel.setVisible(false);
 				this.currentPanel = this.registerpanel;
 				this.currentPanel.setVisible(true);
 				break;
-//			case "login":
-//				this.currentPanel.setVisible(false);
-//				this.currentPanel = this.loginpanel;
-//				this.currentPanel.setVisible(true);
-//				break;
+			case "registerSuccess":
+				this.currentPanel.setVisible(false);
+				this.currentPanel = this.storepanel;
+				this.currentPanel.setVisible(true);
+				break;	
+				
+			case "login":
+				Account a = new Account();
+				if(DBAccount.login(a, bannerpanel.email.getText(), bannerpanel.password.getText() )){
+					System.out.println("logged in");
+					currentsession.setaccount(a);
+					currentsession.setauthenticated(true);
+					bannerpanel.email.setVisible(false);
+					bannerpanel.password.setVisible(false);
+					bannerpanel.logIn.setVisible(false);
+					bannerpanel.logout.setVisible(true);
+					bannerpanel.register.setVisible(false);
+					bannerpanel.repaint();
+				}
+				break;
+			case "logout":
+				this.currentsession = new ClientSession();
+				bannerpanel.email.setVisible(true);
+				bannerpanel.email.setText("");
+				bannerpanel.password.setVisible(true);
+				bannerpanel.password.setText("");
+				bannerpanel.logIn.setVisible(true);
+				bannerpanel.logout.setVisible(false);
+				bannerpanel.register.setVisible(true);
+				bannerpanel.repaint();
+				break;
+			
 		}
 	}
 

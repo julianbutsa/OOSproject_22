@@ -22,8 +22,9 @@ public class CreateAccountPanel extends JPanel implements ActionListener {
 	public JTextField firstNametf, lastNametf, usernametf, emailtf, confirmEmailtf, phonetf;
 	public JPasswordField passwordtf, confirmPasswordtf;
 	public JButton createAccountButton;
-	
-	public CreateAccountPanel(){
+	public ActionListener mainListener;
+	public CreateAccountPanel(ActionListener a){
+		this.mainListener = a;
 		this.setBackground(Color.WHITE);
 		this.setLayout(new BorderLayout());
 		
@@ -102,6 +103,7 @@ public class CreateAccountPanel extends JPanel implements ActionListener {
 			case "register":
 				Store.register(usernametf.getText(), emailtf.getText(), passwordtf.getText(), 
 						firstNametf.getText(), lastNametf.getText(), phonetf.getText());
+				mainListener.actionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, "registerSuccess"));
 				
 			break;
 		}
