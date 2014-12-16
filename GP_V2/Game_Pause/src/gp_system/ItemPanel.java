@@ -28,7 +28,7 @@ public class ItemPanel extends JPanel implements ActionListener{
 	private JButton rateButton;
 	private JButton cartButton;
 	
-	
+	private MainView mv;
 	
 	//private String imagename;
 	//private String name;
@@ -38,18 +38,19 @@ public class ItemPanel extends JPanel implements ActionListener{
 
 	
 	
-	public ItemPanel(Item itemParameter){
+	public ItemPanel(Item itemParameter, MainView a){
+		this.mv = a;
 		GroupLayout layout = new GroupLayout(this);
 		this.setLayout(layout);
 		layout.setAutoCreateGaps(true);
 		layout.setAutoCreateContainerGaps(true);
 		
-		this.item = itemParameter;
-		this.itemname = new JLabel(item.getItemname());
+		this.setItem(itemParameter);
+		this.itemname = new JLabel(getItem().getItemname());
 		//this.setLayout(new GridLayout(3,1));
-		this.itemprice = new JLabel(String.valueOf(item.getPrice()));
-		this.stock = new JLabel(String.valueOf(item.getStock()));
-		this.rating = new JLabel(String.valueOf(item.getRating()));
+		this.itemprice = new JLabel(String.valueOf(getItem().getPrice()));
+		this.stock = new JLabel(String.valueOf(getItem().getStock()));
+		this.rating = new JLabel(String.valueOf(getItem().getRating()));
 		//this.rating = new JLabel(String.valueOf(item.getRating()));	
 		this.rateTextBox = new JTextField("", 2);
 		this.rateButton = new JButton("Rate");
@@ -58,11 +59,14 @@ public class ItemPanel extends JPanel implements ActionListener{
 		
 		this.cartButton = new JButton("Cart");
 		cartButton.addActionListener(this);
-		cartButton.setActionCommand("cart");
+		cartButton.setActionCommand("addtocart");
 		
-		piclabel = new JLabel (new ImageIcon(item.getImage()));
+		piclabel = new JLabel (new ImageIcon(getItem().getImage()));
 		piclabel.setPreferredSize(new Dimension(30,30));
+<<<<<<< HEAD
 	    
+=======
+>>>>>>> origin/master
 		
 		//playing around with GroupLayout, not working how I want it yet
 		layout.setHorizontalGroup(
@@ -109,7 +113,7 @@ public class ItemPanel extends JPanel implements ActionListener{
 
 	
 	public ItemPanel(){
-		this.item = null;
+		this.setItem(null);
 		
 		this.itemname = new JLabel("name");
 		//this.setLayout(new GridLayout(3,1));
@@ -125,9 +129,9 @@ public class ItemPanel extends JPanel implements ActionListener{
 		cartButton.addActionListener(this);
 		cartButton.setActionCommand("cart");
 		
-		this.piclabel = new JLabel ( new ImageIcon("./logo.jpg"));
+		//this.piclabel = new JLabel ( new ImageIcon("./logo.jpg"));
 		
-		this.add(piclabel);
+		//this.add(piclabel);
 		
 		this.add(itemname);
 		this.add(itemprice);
@@ -142,7 +146,22 @@ public class ItemPanel extends JPanel implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
+		switch(arg0.getActionCommand()){
+			case "addtocart":
+				this.mv.currentsession.getcart().addItemtoCart(this.item);
+				break;
+		}
 		
+	}
+
+
+	public Item getItem() {
+		return item;
+	}
+
+
+	public void setItem(Item item) {
+		this.item = item;
 	}
 	
 	

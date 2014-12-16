@@ -10,8 +10,8 @@ public class Cart {
 	
 	public ArrayList<Item> cart = new ArrayList<Item>();
 	
-	public boolean addItemtoCart(){
-		
+	public boolean addItemtoCart(Item e){
+		cart.add(e);
 		return false;
 	}
 

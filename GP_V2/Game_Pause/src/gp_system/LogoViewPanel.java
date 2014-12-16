@@ -73,8 +73,8 @@ public class LogoViewPanel extends JPanel implements ActionListener{
 		store.addActionListener(a);
 		store.setActionCommand("store");
 		
-		store.addActionListener(a);
-		store.setActionCommand("cart");
+		cart.addActionListener(a);
+		cart.setActionCommand("cart");
 
 
 		register.setAlignmentX(RIGHT_ALIGNMENT);
