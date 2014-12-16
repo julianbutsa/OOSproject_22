@@ -60,18 +60,15 @@ public class ItemPanel extends JPanel implements ActionListener{
 		this.cartButton = new JButton("Cart");
 		cartButton.addActionListener(this);
 		cartButton.setActionCommand("addtocart");
-		
+		/*
 		piclabel = new JLabel (new ImageIcon(getItem().getImage()));
 		piclabel.setPreferredSize(new Dimension(30,30));
-<<<<<<< HEAD
-	    
-=======
->>>>>>> origin/master
+		*/
 		
 		//playing around with GroupLayout, not working how I want it yet
 		layout.setHorizontalGroup(
 				layout.createSequentialGroup()
-					.addComponent(piclabel)
+					//.addComponent(piclabel)
 					.addComponent(itemname)
 					.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
 						.addComponent(rating)
@@ -88,7 +85,7 @@ public class ItemPanel extends JPanel implements ActionListener{
 		layout.setVerticalGroup(
 				layout.createSequentialGroup()
 					.addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-						.addComponent(piclabel)
+						//.addComponent(piclabel)
 						.addComponent(itemname)
 						.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
 							.addComponent(rating)

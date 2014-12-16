@@ -16,6 +16,9 @@ public class Cart {
 	}
 
 	public boolean removeItemfromCart(){
+		for(int i = 0; i<cart.size(); i++){
+			cart.remove(i);
+		}
 		
 		return false;
 	}
