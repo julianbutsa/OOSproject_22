@@ -63,10 +63,6 @@ public class ItemPanel extends JPanel implements ActionListener{
 		
 		piclabel = new JLabel (new ImageIcon(getItem().getImage()));
 		piclabel.setPreferredSize(new Dimension(30,30));
-<<<<<<< HEAD
-	    
-=======
->>>>>>> origin/master
 		
 		//playing around with GroupLayout, not working how I want it yet
 		layout.setHorizontalGroup(
