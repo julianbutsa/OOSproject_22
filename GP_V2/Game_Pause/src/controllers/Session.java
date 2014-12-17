@@ -31,6 +31,7 @@ public interface Session {
 	public boolean deleteComment();
 
 	public Cart getcart();
+	public Account getUser();
 	
 	public void setauthenticated(boolean auth);
 	public void setaccount(Account a);

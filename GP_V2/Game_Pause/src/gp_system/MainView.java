@@ -29,7 +29,7 @@ public class MainView extends JFrame implements ActionListener{
 
 	public static Session currentsession = null;
 	
-	private JPanel currentPanel;
+	public JPanel currentPanel;
 	//public static ActionListener MainActionListener;
 	
 	public MainView(){
@@ -66,7 +66,7 @@ public class MainView extends JFrame implements ActionListener{
 		this.add(storepanel,c);
 		this.currentPanel = this.storepanel;
 		
-		this.profilepanel = new ProfilePanel();
+		this.profilepanel = new ProfilePanel(this);
 		c.gridx = 2;
 		c.gridy = 2;
 		c.gridwidth = GridBagConstraints.REMAINDER;
@@ -115,6 +115,11 @@ public class MainView extends JFrame implements ActionListener{
 	
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
+		GridBagConstraints c = new GridBagConstraints();
+		c.gridx = 2;
+		c.gridy = 2;
+		c.gridwidth = GridBagConstraints.REMAINDER;
+		c.gridheight = GridBagConstraints.REMAINDER;
 		switch(arg0.getActionCommand()){
 			case "store":
 				this.currentPanel.setVisible(false);
@@ -122,6 +127,8 @@ public class MainView extends JFrame implements ActionListener{
 				this.currentPanel.setVisible(true);
 				break;		
 			case "profile":
+				this.profilepanel = new ProfilePanel(this);
+				this.add(profilepanel,c);
 				this.currentPanel.setVisible(false);
 				this.currentPanel = this.profilepanel;
 				this.currentPanel.setVisible(true);
@@ -139,11 +146,6 @@ public class MainView extends JFrame implements ActionListener{
 				
 			case "cart":
 				this.cart  = new CartView(this);
-				GridBagConstraints c = new GridBagConstraints();
-				c.gridx = 2;
-				c.gridy = 2;
-				c.gridwidth = GridBagConstraints.REMAINDER;
-				c.gridheight = GridBagConstraints.REMAINDER;
 				this.add(cart, c);
 				this.currentPanel.setVisible(false);
 				this.currentPanel = this.cart;
@@ -161,6 +163,7 @@ public class MainView extends JFrame implements ActionListener{
 					bannerpanel.logIn.setVisible(false);
 					bannerpanel.logout.setVisible(true);
 					bannerpanel.register.setVisible(false);
+					bannerpanel.profile.setVisible(true);
 					bannerpanel.repaint();
 				}
 				break;

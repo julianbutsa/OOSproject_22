@@ -15,10 +15,15 @@ public class ProfilePanel extends JPanel {
 	public JLabel accountIDLabel, nameLabel, usernameLabel, phoneNumberLabel, emailLabel, billingInfoLabel, shippingInfoLabel,
 	              accountID, name, username, phoneNumber, email, billingInfo, shippingInfo;
 	public JButton editProfile;
-	public Account testAccount = new Account();
+	//public Account testAccount = new Account();
+	private MainView mv;
+	private Account user;
 	
-	public ProfilePanel() {
+	public ProfilePanel(MainView main) {
+		this.mv = main;
 		this.setBackground(Color.WHITE);
+		if(this.mv.currentsession.getUser() != null){
+		user = this.mv.currentsession.getUser();
 		
 		GridLayout layout = new GridLayout(8,2);
 		this.setLayout(layout);
@@ -31,13 +36,13 @@ public class ProfilePanel extends JPanel {
 		billingInfoLabel = new JLabel("Billing Info:");
 		shippingInfoLabel = new JLabel("Shipping Info:");
 		
-		accountID = new JLabel(""+testAccount.getAccountid());
-		name = new JLabel(testAccount.getFirstname() + " " + testAccount.getLastname());
-		username = new JLabel(testAccount.getUsername());
-		phoneNumber = new JLabel(testAccount.getPhonenumber());
-		email = new JLabel(testAccount.getEmail());
-		//billingInfo = new JLabel(testAccount.getBillinginfo().getStreet() + " " + testAccount.getBillinginfo().getState() + " " + testAccount.getBillinginfo().getZip());
-		//shippingInfo = new JLabel(testAccount.getShippinginfo().getStreet() + " " + testAccount.getShippinginfo().getState() + " " + testAccount.getShippinginfo().getZip());
+		accountID = new JLabel(String.valueOf(user.getAccountid()));
+		name = new JLabel(String.valueOf(user.getFirstname()) + " " + String.valueOf(user.getLastname()));
+		username = new JLabel(String.valueOf(user.getUsername()));
+		phoneNumber = new JLabel(String.valueOf(user.getPhonenumber()));
+		email = new JLabel(String.valueOf(user.getEmail()));
+		//billingInfo = new JLabel(String.valueOf(user.getBillinginfo().getStreet()) + "  " + String.valueOf(user.getBillinginfo().getState()) +" " +String.valueOf(user.getBillinginfo().getZip()));
+		//shippingInfo = new JLabel(String.valueOf(user.getShippinginfo().getStreet()) + "  " + String.valueOf(user.getShippinginfo().getState()) +" " +String.valueOf(user.getShippinginfo().getZip()));
 		
 		this.add(accountIDLabel);
 		this.add(accountID);
@@ -49,14 +54,14 @@ public class ProfilePanel extends JPanel {
 		this.add(phoneNumber);
 		this.add(emailLabel);
 		this.add(email);
-		this.add(billingInfoLabel);
+		//this.add(billingInfoLabel);
 		//this.add(billingInfo);
 		//this.add(shippingInfoLabel);
 		//this.add(shippingInfo);
 		
 		editProfile = new JButton("Edit Profile");
 		this.add(editProfile);
-
+		}
 	}
 
 }

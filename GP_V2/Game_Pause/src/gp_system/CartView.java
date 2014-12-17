@@ -53,8 +53,6 @@ public class CartView extends JPanel implements ActionListener{
 		switch(e.getActionCommand()){
 		case "submit":
 			this.mv.currentsession.getcart().emptyCart();
-			this.revalidate();
-			this.repaint();
 		break;
 	}
 	}

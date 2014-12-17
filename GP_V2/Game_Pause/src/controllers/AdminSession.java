@@ -47,6 +47,10 @@ public class AdminSession implements Session{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public Account getUser(){
+		return null;
+	}
 
 	@Override
 	public void setauthenticated(boolean auth) {

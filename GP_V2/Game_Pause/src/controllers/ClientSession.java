@@ -61,6 +61,11 @@ public class ClientSession implements Session{
 	public Cart getcart(){
 		return usercart;
 	}
+	
+	public Account getUser(){
+		return currentuser;
+	}
+	
 	@Override
 	public void setauthenticated(boolean auth) {
 		// TODO Auto-generated method stub
