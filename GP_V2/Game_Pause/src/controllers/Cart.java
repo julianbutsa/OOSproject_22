@@ -24,11 +24,14 @@ public class Cart {
 	}
 	
 	public boolean checkout(){
-		
+	
 		return false;
 	}
 	
 	public boolean emptyCart(){
+		for(int i = cart.size()-1; i>=0; i--){
+			cart.remove(i);
+		}
 		
 		return false;
 	}
