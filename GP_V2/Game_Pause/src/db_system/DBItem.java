@@ -119,5 +119,25 @@ public class DBItem extends DBConnect{
 			return flag;
 					
 		} 
+		public static boolean updateRating (String itemname, double rate){
+			//public static boolean updateRating(String itemname, double rate, int numrate){
+			
+			//update item set rating = 2 where itemname = "Bayoneta2"
+			boolean ret = false;
+			String query1 = "UPDATE item SET rating = " + rate +" WHERE itemname = \"" + itemname + "\";";
+			
+			//String query2 = "UPDATE item SET numrate = " + numrate +" where itemname = \"" + itemname + "\";";
+			try {
+				stmt.executeUpdate(query1);
+				//stmt.executUpdate(query2);
+				ret = true;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				ret = false;
+			}
+			return ret;
+
+		}
 
 }
